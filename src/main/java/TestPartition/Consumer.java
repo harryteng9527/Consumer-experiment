@@ -15,11 +15,12 @@ public class Consumer {
         Properties props = new Properties();
         Args argument = Args.parse(args);
         Configure conf = new Configure(argument);
+        Listener listener = new Listener(argument);
 
         conf.setProperty(props);
 
         KafkaConsumer<String,String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("first"));
+        consumer.subscribe(Arrays.asList("first"), listener);
         while(true){
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
             for (ConsumerRecord<String, String> record : records)

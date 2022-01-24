@@ -19,6 +19,11 @@ public class Args {
                description = "Set partition assignment strategy")
     public String partitionStrategy;
 
+    @Parameter(names = "--consumerID",
+               required = true)
+    public String consumerID;
+
+
     public static Args parse(String[] args){
         Args arg = new Args();
         JCommander.newBuilder()
