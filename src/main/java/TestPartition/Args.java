@@ -4,7 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 
 public class Args {
-    @Parameter(names = "--bootstrap.servers",
+    @Parameter(names = "--broker",
                required = true,
                description = "Set bootstrap.servers to consumer")
     public String bootstrapServer;
